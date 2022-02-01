@@ -1,4 +1,4 @@
-
+%python
 import warnings
 warnings.filterwarnings('ignore')
 import pandas as pd
@@ -9,26 +9,27 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
 
-
+%python
 from sklearn import linear_model
 import pandas as pd
 
 Covid_data = oml.sync(query='SELECT * FROM COVID_DATA', schema = "CD")
 Covid_data.head()
 
-
+%python
 
 Covid_data.shape
 
-
+%python
 DEMO_DF = Covid_data[["DAY", "LAB_TEST", "CONFIRMED", "OUTPUT"]]
 
+%python
 z.show(DEMO_DF.head())
 
-
+%python
 DEMO_DF = DEMO_DF.replace(old = ['LOW RISK','MEDIUM RISK','HIGH RISK'], new = [1.0,2.0,3.0], default = 0.0, columns = ['OUTPUT'])
 
-
+%python
 z.show(DEMO_DF.head())
 
 %python
